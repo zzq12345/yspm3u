@@ -8,6 +8,10 @@ on:
     # 每天 UTC 时间 0 点运行（北京时间 8 点）
     - cron: '0 0 * * *'
 
+# 需要显式授予写入权限
+permissions:
+  contents: write
+
 jobs:
   generate-m3u:
     runs-on: ubuntu-latest
@@ -15,7 +19,10 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      
+      with:
+        # 使用令牌检出，这样才有推送权限
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
@@ -39,15 +46,15 @@ jobs:
         
     - name: Commit and push if changed
       run: |
-        # 配置 Git
-        git config --local user.email "github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        
         # 检查 M3U 文件是否存在
         if [ ! -f "live.m3u" ]; then
           echo "错误: live.m3u 文件未生成"
           exit 1
         fi
+        
+        # 配置 Git
+        git config --local user.name "github-actions[bot]"
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
         
         # 添加文件
         git add live.m3u
@@ -56,8 +63,10 @@ jobs:
         if git diff --cached --quiet; then
           echo "M3U文件无变化，无需提交"
         else
-          # 提交并推送
-          git commit -m "自动更新 M3U 文件 [skip ci]"
+          # 提交
+          git commit -m "自动更新 M3U 文件 $(date +'%Y-%m-%d %H:%M:%S') [skip ci]"
+          
+          # 推送更改
           git push
           echo "M3U文件已更新并推送"
         fi
