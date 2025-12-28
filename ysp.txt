@@ -23,9 +23,9 @@ cctv8K,http://127.0.0.1:8080/ysp?cnlid=2026774101&livepid=600156816&defn=hdr
 cgtn,http://127.0.0.1:8080/ysp?cnlid=2024181701&livepid=600014550&defn=fhd
 cgtn法語,http://127.0.0.1:8080/ysp?cnlid=2024181801&livepid=600084704&defn=fhd
 cgtn俄語,http://127.0.0.1:8080/ysp?cnlid=2024181901&livepid=600084758&defn=fhd
-cgtn阿拉伯,http://127.0.0.1:8080/ysp?cnlid=2024182001&livepid=600084782&defn=fhd
+cgtn阿拉伯語,http://127.0.0.1:8080/ysp?cnlid=2024182001&livepid=600084782&defn=fhd
 cgtn西班牙語,http://127.0.0.1:8080/ysp?cnlid=2024182101&livepid=600084744&defn=fhd
-cgtn外語紀錄,http://127.0.0.1:8080/ysp?cnlid=2024182301&livepid=600084781&defn=fhd
+cgtn英文記錄片,http://127.0.0.1:8080/ysp?cnlid=2024182301&livepid=600084781&defn=fhd
 衛視,#genre#
 北京衛視,http://127.0.0.1:8080/ysp?cnlid=2024052703&livepid=600002309&defn=fhd
 東方衛視,http://127.0.0.1:8080/ysp?cnlid=2024054503&livepid=600002483&defn=fhd
@@ -42,7 +42,7 @@ cgtn外語紀錄,http://127.0.0.1:8080/ysp?cnlid=2024182301&livepid=600084781&de
 深圳衛視,http://127.0.0.1:8080/ysp?cnlid=2024061303&livepid=600002481&defn=fhd
 四川衛視,http://127.0.0.1:8080/ysp?cnlid=2024061403&livepid=600002516&defn=fhd
 河南衛視,http://127.0.0.1:8080/ysp?cnlid=2024059703&livepid=600002525&defn=fhd
-福建東南衛視,http://127.0.0.1:8080/ysp?cnlid=2024061503&livepid=600002484&defn=fhd
+東南衛視,http://127.0.0.1:8080/ysp?cnlid=2024061503&livepid=600002484&defn=fhd
 貴州衛視,http://127.0.0.1:8080/ysp?cnlid=2024061603&livepid=600002490&defn=fhd
 江西衛視,http://127.0.0.1:8080/ysp?cnlid=2024061703&livepid=600002503&defn=fhd
 遼寧衛視,http://127.0.0.1:8080/ysp?cnlid=2024171303&livepid=600002505&defn=fhd
@@ -66,4 +66,5 @@ cgtn外語紀錄,http://127.0.0.1:8080/ysp?cnlid=2024182301&livepid=600084781&de
 cctv央視檯球頻道,http://127.0.0.1:8080/ysp?cnlid=2026875003&livepid=600099652&defn=fhd
 cctv電視指南頻道,http://127.0.0.1:8080/ysp?cnlid=2026875103&livepid=600099656&defn=fhd
 cctv衛生健康頻道,http://127.0.0.1:8080/ysp?cnlid=2025637003&livepid=600099651&defn=fhd
+
 
