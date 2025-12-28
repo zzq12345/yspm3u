@@ -62,6 +62,17 @@ cgtn英文記錄片,http://127.0.0.1:8080/ysp?cnlid=2024182301&livepid=600084781
 新疆衛視,http://127.0.0.1:8080/ysp?cnlid=2019927403&livepid=600152138&defn=fhd
 兵團衛視,http://127.0.0.1:8080/ysp?cnlid=2025990501&livepid=600193252&defn=fhd
 國學頻道,http://127.0.0.1:8080/ysp?cnlid=2029360403&livepid=600213139&defn=fhd
+央視VIP,#genre#
+cctv世界地理,http://127.0.0.1:8080/ysp?cnlid=2026874403&livepid=600099637&defn=fhd
+cctv風雲音樂,http://127.0.0.1:8080/ysp?cnlid=2026874503&livepid=600099660&defn=fhd
+cctv兵器科技,http://127.0.0.1:8080/ysp?cnlid=2026874603&livepid=600099649&defn=fhd
+cctv風雲足球,http://127.0.0.1:8080/ysp?cnlid=2026966203&livepid=600099636&defn=fhd
+cctv高爾夫·,http://127.0.0.1:8080/ysp?cnlid=2026874703&livepid=600099659&defn=fhd
+cctv女性時尚,http://127.0.0.1:8080/ysp?cnlid=2026874803&livepid=600099650&defn=fhd
+cctv央視文化精品,http://127.0.0.1:8080/ysp?cnlid=2026874903&livepid=600099653&defn=fhd
+cctv央視檯球,http://127.0.0.1:8080/ysp?cnlid=2026875003&livepid=600099652&defn=fhd
+cctv電視指南,http://127.0.0.1:8080/ysp?cnlid=2026875103&livepid=600099656&defn=fhd
+cctv衛生健康,http://127.0.0.1:8080/ysp?cnlid=2025637003&livepid=600099651&defn=fhd
 
 
 
