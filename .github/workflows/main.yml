@@ -30,28 +30,6 @@ jobs:
       run: |
         python generate_m3u.py
 
-    - name: Commit and push
-        working-directory: epg  # 使用官方推荐方式指定路径
-        run: |
-          # 显式检查文件状态
-          git status
-          git diff
-
-          # 配置 Git 身份
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          # 添加所有变化（适应文件名大小写变化）
-          git add --all
-
-          # 检测是否有可提交内容
-          if [ -n "$(git status --porcelain)" ]; then
-            now_time=$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')
-            git commit -m "自动更新时间：$now_time"
-            git push origin main
-          else
-            echo "无实际文件变更，跳过提交"
-          fi    
     - name: Upload M3U file as artifact
       uses: actions/upload-artifact@v4
       with:
@@ -61,30 +39,35 @@ jobs:
         
     - name: Commit and push if changed
       run: |
+        # 配置 Git
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         
-        if [ -f "live.m3u" ]; then
-          # 检查文件是否有变化
-          if git diff --quiet live.m3u 2>/dev/null || [ ! -f ".git/index" ]; then
-            echo "M3U文件无变化"
-          else
-            git add live.m3u
-            git commit -m "Auto-update M3U file [skip ci]"
-            git push
-            echo "M3U文件已更新并推送"
-          fi
-        else
-          echo "M3U文件未生成"
+        # 检查 M3U 文件是否存在
+        if [ ! -f "live.m3u" ]; then
+          echo "错误: live.m3u 文件未生成"
           exit 1
+        fi
+        
+        # 添加文件
+        git add live.m3u
+        
+        # 检查是否有变化需要提交
+        if git diff --cached --quiet; then
+          echo "M3U文件无变化，无需提交"
+        else
+          # 提交并推送
+          git commit -m "自动更新 M3U 文件 [skip ci]"
+          git push
+          echo "M3U文件已更新并推送"
         fi
         
     - name: Output result
       run: |
         echo "=== M3U 文件生成完成 ==="
         if [ -f "live.m3u" ]; then
-          echo "生成的频道数量:"
-          grep -c "#EXTINF" live.m3u || echo "0"
+          echo "文件大小: $(wc -l < live.m3u) 行"
+          echo "生成的频道数量: $(grep -c "#EXTINF" live.m3u || echo "0")"
           echo ""
           echo "文件内容预览:"
           head -20 live.m3u
