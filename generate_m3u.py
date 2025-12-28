@@ -64,7 +64,7 @@ def generate_m3u(channels: List[Dict[str, str]], output_file: str = "live.m3u"):
     """生成 M3U 文件"""
     with open(output_file, 'w', encoding='utf-8') as f:
         # 写入 M3U 头部 - 修复引号问题
-        f.write('#EXTM3U url-tvg="https://github.com/zzq1234567890/epg/raw/refs/heads/main/swepg.xml.gz" \n')
+        f.write('#EXTM3U url-tvg="https://github.com/zzq1234567890/epg/raw/refs/heads/main/twepg.xml.gz" \n')
       
         
         # 按分类分组处理
