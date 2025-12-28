@@ -86,7 +86,7 @@ def generate_m3u(channels: List[Dict[str, str]], output_file: str = "live.m3u"):
                 continue
             
             # 写入频道信息到 M3U
-            f.write(f'#EXTINF:-1 tvg-id="" tvg-name="{channel["name"]}" tvg-logo="" group-title="央視頻",{channel["name"]}\n')
+            f.write(f'#EXTINF:-1 tvg-id="{channel["name"]}" tvg-name="{channel["name"]}" tvg-logo="" group-title="央視頻",{channel["name"]}\n')
             f.write(f"{stream_url}\n")
     
     print(f"M3U 文件已生成: {output_file}")
