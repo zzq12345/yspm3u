@@ -16,10 +16,10 @@ cctv13,http://127.0.0.1:8080/ysp?cnlid=2024079001&livepid=600001811&defn=fhd
 cctv14,http://127.0.0.1:8080/ysp?cnlid=2027248901&livepid=600001809&defn=fhd
 cctv15,http://127.0.0.1:8080/ysp?cnlid=2027249001&livepid=600001815&defn=fhd
 cctv16,http://127.0.0.1:8080/ysp?cnlid=2027249101&livepid=600098637&defn=fhd
-cctv16(4K),http://127.0.0.1:8080/ysp?cnlid=2027249301&livepid=600099502&defn=hdr
+cctv16,http://127.0.0.1:8080/ysp?cnlid=2027249301&livepid=600099502&defn=hdr
 cctv17,http://127.0.0.1:8080/ysp?cnlid=2027249401&livepid=600001810&defn=fhd
-cctv4K,http://127.0.0.1:8080/ysp?cnlid=2027249501&livepid=600002264&defn=hdr
-cctv8K,http://127.0.0.1:8080/ysp?cnlid=2026774101&livepid=600156816&defn=hdr
+cctv4k,http://127.0.0.1:8080/ysp?cnlid=2027249501&livepid=600002264&defn=hdr
+cctv8k,http://127.0.0.1:8080/ysp?cnlid=2026774101&livepid=600156816&defn=hdr
 cctv第一劇場,http://127.0.0.1:8080/ysp?cnlid=2026874202&livepid=600099655&defn=shd
 cctv風雲劇場,http://127.0.0.1:8080/ysp?cnlid=2025637102&livepid=600099658&defn=shd
 cctv懷舊劇場,http://127.0.0.1:8080/ysp?cnlid=2026874302&livepid=600099620&defn=shd
@@ -77,6 +77,7 @@ cctv央視文化精品,http://127.0.0.1:8080/ysp?cnlid=2026874903&livepid=600099
 cctv央視檯球,http://127.0.0.1:8080/ysp?cnlid=2026875003&livepid=600099652&defn=fhd
 cctv電視指南,http://127.0.0.1:8080/ysp?cnlid=2026875103&livepid=600099656&defn=fhd
 cctv衛生健康,http://127.0.0.1:8080/ysp?cnlid=2025637003&livepid=600099651&defn=fhd
+
 
 
 
