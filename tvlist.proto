@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+message Response {
+    int32 code = 1;       // 值: 200
+    DataWrapper data = 2; // 包含主要数据
+    string msg = 3;       // 值: "成功"
+}
+
+message DataWrapper {
+    string page_id = 1;      // 值: "PG00000004"
+    Content content = 2;     // 嵌套内容
+}
+
+message Content {
+    string module_id = 1;    // 值: "MD0000000004"
+    string type = 2;         // 值: "tvChannel"
+    string list_name = 13;   // 值: "tv_channel_list"
+    repeated Channel list = 15; // 频道列表
+}
+
+message Channel {
+    string type = 1;         // 值: "tv-channel-list"
+    string name = 2;         // 值: "CCTV1"
+    string livepid = 4;      // 值: "600001859"
+
+    string logo = 5;         // URL
+    string cnlid = 6;        // 值: "2024078201"
+
+    string is_pay = 7;       // 付费标记: "1"表示付费
+    string is_4k = 8;        // 4K标记: "1"表示4K
+    string has_epg = 9;      // 是否有节目单: "1"有, "0"无
+    repeated string dates = 10; // 值: "2026-01-08", "2026-01-09"...
+    string source = 11;      // 值: "yangshi" / "weishi"
+    string icon1 = 12;       // URL
+    string icon2 = 13;       // URL
+    string field_14 = 14;    // 未知
+    bytes field_15 = 15;     // 未知 (2字节)
+    PayInfo pay_info = 16;   // 付费信息
+    string field_17 = 17;    // 未知
+    int32 field_18 = 18;     // 未知 (879/880)
+}
+
+message PayInfo {
+    PayDetail detail = 1;    // 嵌套的付费详情
+}
+
+message PayDetail {
+    string pay_type = 1;     // 30001=限免, 30002=VIP, 30004=4K
+    string pay_desc = 2;     // 电视-pid-限免 / 电视-pid-VIP / 电视-pid-4k
+}
