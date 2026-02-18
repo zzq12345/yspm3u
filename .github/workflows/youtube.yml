@@ -1,0 +1,53 @@
+name: Extract YouTube 4K Link
+
+on:
+  workflow_dispatch: # 手动触发
+    inputs:
+      video_url:
+        description: 'YouTube Live URL'
+        required: true
+        default: 'https://www.youtube.com/live/-cfIvWymwjk'
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install yt-dlp
+
+      - name: Run Extraction Script
+        id: parse
+        run: |
+          # 使用 yt-dlp 直接提取最高画质的 m3u8 地址
+          # -g 表示只打印 URL, --format 指定最高画质
+          RESULT=$(yt-dlp -g --format "bestvideo[height<=2160]+bestaudio/best[height<=2160]/best" "${{ github.event.inputs.video_url }}")
+          echo "STREAM_URL=$RESULT" >> $GITHUB_ENV
+          
+          # 输出到 GitHub Step Summary 方便直接复制
+          echo "### 🚀 解析结果 (4K/最高清晰度)" >> $GITHUB_STEP_SUMMARY
+          echo "视频地址: ${{ github.event.inputs.video_url }}" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          echo "$RESULT" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          
+          echo "解析成功！请在 Summary 界面查看地址。"
+
+      - name: Save to file (Optional)
+        run: |
+          echo "${{ env.STREAM_URL }}" > live_url.txt
+
+      - name: Upload result
+        uses: actions/upload-artifact@v4
+        with:
+          name: youtube-direct-link
+          path: live_url.txt
