@@ -2,9 +2,9 @@ name: Auto Update M3U Playlist
 
 on:
   schedule:
-    # 每 3 小时自动触发一次 (UTC 时间 0, 3, 6, 9, 12, 15, 18, 21 点)
+    # 每 3 小时自动运行一次 (UTC 时间 0, 3, 6, 9, 12, 15, 18, 21 点)
     - cron: '0 */3 * * *'
-  workflow_dispatch: # 支持手动手动在 GitHub 上点击运行
+  workflow_dispatch: # 支持在 GitHub Actions 界面手动触发
 
 jobs:
   update-m3u:
@@ -20,6 +20,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install cryptography
 
       - name: Generate M3U File
         run: |
